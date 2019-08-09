@@ -16,16 +16,52 @@ Easy in the sense that:
 * notifications
 * web app
 
-The service can be written in Flask. Notifications can be done either with the Notifiers library or a standard app. The web app itself can just be done with Flask and a templating engine or a bit more involved with a web framework like Vue or Angular.
+Advantage of using a service here:
+
+* both notifications and web app don't need to know directly about how the model works
+* safety checks can be made on the data
+* easier to test
+
+The service can be written in [Flask](https://palletsprojects.com/p/flask/).
+
+Notifications can be done either with:
+
+* the `notifiers` library
+* native implementation of an app
+
+The web app itself can be done with:
+
+* Flask in combination with a templating engine
+* web framework like [Vue](https://vuejs.org/)
+
+If we use Flask to render the data the page will be static. If we use a web framework dynamic options are possible.
 
 These libraries are chosen because they have a minimalistic vision enabling us to:
 
 * write code that's easy to understand by others
 * quickly set up a proof of concept
 
+## Downy mildey
+
+[Wikipedia explanation](https://en.wikipedia.org/wiki/Downy_mildew)
+
+The pathogen tends to become established in late summer.
+
+Therefore, planting early season varieties may further reduce the already minor threat posed by downy mildew.
+
+One way to control downy mildew is to eliminate moisture and humidity around the impacted plants
+
+
 ## Questions
 
-* explanation variables
+* explanation input variables
+* how many updates per day?
+* where does the input data come from?
+* what is dependent variable?
+* deadline
+  * does it have to be ready before late summer?
+* wikipedia says downy mildew is just a minor threat, why so important?
+* 
 
 ## Variables model
 
