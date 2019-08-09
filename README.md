@@ -61,7 +61,14 @@ One way to control downy mildew is to eliminate moisture and humidity around the
 * deadline
   * does it have to be ready before late summer?
 * wikipedia says downy mildew is just a minor threat, why so important?
-* 
+
+## Deliverables
+
+* application
+* documentation
+  * how to configure model
+  * how to deploy app
+* basic tests
 
 ## Variables model
 
