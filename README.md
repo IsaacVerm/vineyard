@@ -89,3 +89,58 @@ Simple test Simplepush which sends a notification to your phone. 5nCvuY is my us
 curl 'https://api.simplepush.io/send/5nCvuY/Wow/So easy'
 ```
 
+## Feedback
+
+User two-ways: both notifications and input (e.g. I took measures at this moment).
+
+variabelen weerstation (per uur):
+
+- relatieve vochtigheid
+- temperatuur
+  - min
+  - max
+  - gemiddeld
+- bladnat
+- licht
+- barometerdruk (voorspelling)
+
+eigen variabelen invullen:
+
+- druivensoort
+- sensitiviteit (vb. schimmeldruk hoog omdat veld niet onderhouden is)
+- 5 bladenstadion (vooraf geen infectie mogelijk)
+
+Artikel mechanistisch model.
+
+Data zoeken:
+- meeldauw (https://www.gbif.org/dataset/172149d2-2dc0-43fb-a7b1-57e3e4ec34a2#description)
+- frederick
+
+Als gesproeid moet je kunnen bepalen welk soort sproeistof gebruikt werd.
+
+Visualisatie:
+
+- kans dat infectie uitbreekt
+- weergeven neerslag/temperatuur volgende dagen
+
+Geschiedenis bijhouden van sproeien.
+
+Extra: bv. meerdere weerstations per veld (aggregatie)
+
+Geen black-box model.
+
+Basisschimmels gaan niet weg.
+
+Op basis van weerstation data.
+
+Criteria model:
+
+- bevat alle variabelen
+- mogelijk terugkoppelen in latere jaren
+
+## To do
+
+- doorsturen papers naar Michiel
+- data zoeken
+- document overzicht wat te doen
+- gegevens Laurian doorgeven
