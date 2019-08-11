@@ -2,6 +2,17 @@
 
 ## Setup
 
+### Credentials
+
+All credentials should be put in a `credentials.py` file in the root directory. At the moment the following credentials are defined:
+
+```
+username = {username to login to weather station}
+password = {password to login to weather station}
+```
+
+### Virtual environment
+
 First create a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
 
 ```
@@ -26,6 +37,10 @@ To add more packages to `requirements.txt`:
 pip install {package}
 pip freeze > requirements.txt
 ```
+
+### Get weather station data
+
+You can get the latest data by running `python fetch-weather-station-data.py`.
 
 ## Background
 
