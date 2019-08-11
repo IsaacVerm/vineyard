@@ -1,9 +1,65 @@
 # vineyard
 
+## Background
+
+### Downey mildew
+
+*Plasmopara viticola* causes downy mildew. Mostly occurs in rainy areas (e.g. Belgium). *Plasmopara viticola* has 2 infection cycles:
+
+* asexual (primary infection)
+* sexual (secundary infection)
+
+ Since the disease spreads very fast during the secondary infection cycles, successful control depends on controlling the primary infections.
+
+### 3-10 rule
+
+Traditionally the *3-10* rule is used as a "model". This rule says there will be an infection when:
+
+* temperature > 10 degrees
+* vine shoots > 10 cm
+* 10 mm of rainfall in last 24-48 hours
+* 
+The *3-10* rule can be assumed to be a minimum acceptancecriterium for our own model. In addition it can be usedas a sanity check for our own model. If our own modeldeviates too far from the rule it probably meanssomething is wrong with our model and not the rule(although the rule is far from perfect).
+
+### mechanistic model
+
+The model simulates the infection process from germination to symptoms.
+
+![](development-plasmopara-viticola.png)
+
+When weather conditions are favourable (e.g. high temperature, enough rainfall) a cohort will be simulated until disease appearance; otherwise, the simulation for the cohort stops at any stage of pathogen development. 
+
+Important is cohorts are used because that's what they had modelling problems with in Excel. The issue is multiple cohorts can be developing at the same time.
+
+### input variables
+
+Weather variables are logged by a weather station in the vineyard. These weather variables are the input of the model.
+
+### Goal
+
+Goal is to get each hour an estimate of the probability of downy mildew using a mechanistic model detailed in the following papers:
+
+* A model predicting primary infections of Plasmopara viticola in different grapevine-growing areas of Italy
+* A mechanistic model simulating primary infections
+of downy mildew in grapevine
+
+Based on this probability notifications are sent.
+
+A secundary goal is to visualize the actions taken, input variables and mildew probability.
+
+## Verification model
+
+The dependent variable (the presence of downy mildew) is not present in the data set provided. It is thus impossible to verify the model.
+
+## Data sources
+
+## Data contract
+
 ## Objectives
 
 * should be modular
 * should be easy to configure
+* daily updates
 
 Easy in the sense that:
 
@@ -54,9 +110,7 @@ One way to control downy mildew is to eliminate moisture and humidity around the
 
 ## Questions
 
-* explanation input variables
-* how many updates per day?
-* where does the input data come from?
+* 
 * what is dependent variable?
 * deadline
   * does it have to be ready before late summer?
