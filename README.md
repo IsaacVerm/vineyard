@@ -1,5 +1,32 @@
 # vineyard
 
+## Setup
+
+First create a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
+
+```
+python3 -m venv venv
+```
+
+Activate this virtual environment:
+
+```
+source venv/bin/activate
+```
+
+Install the packages in `requirements.txt` (this file contains a list of packages with the version used):
+
+```
+pip install -r requirements.txt
+```
+
+To add more packages to `requirements.txt`:
+
+```
+pip install {package}
+pip freeze > requirements.txt
+```
+
 ## Background
 
 ### Downey mildew
