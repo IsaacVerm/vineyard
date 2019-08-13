@@ -1,0 +1,14 @@
+curl -X POST \
+  'http://sensornetwerk.inagro.be/Login.aspx?sensorId=184' \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 139' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Cookie: ASP.NET_SessionId=tx0lknzm0qidep3ikiatg51j' \
+  -H 'Host: sensornetwerk.inagro.be' \
+  -H 'Postman-Token: 6b9bfbf7-bdec-4777-800d-39e0f8c85c28,19bcd112-bf60-4f3d-bf2f-fec30fbc979b' \
+  -H 'User-Agent: PostmanRuntime/7.15.2' \
+  -H 'cache-control: no-cache' \
+  -d 'ctl00%24ContentPlaceHolder1%24Login1%24UserName=laurianparmentier%40hotmail.com&ctl00%24ContentPlaceHolder1%24Login1%24Password=laur2016!'
