@@ -154,6 +154,14 @@ To run script in sqlite3:
 sqlite3 vineyard.db < script.sql
 ```
 
+## Service
+
+Run Flask:
+
+```
+env FLASK_APP=model-output-service.py flask run
+```
+
 ## Background
 
 ### Downey mildew
