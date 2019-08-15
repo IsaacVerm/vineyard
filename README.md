@@ -162,6 +162,8 @@ Run Flask:
 env FLASK_APP=model-output-service.py flask run
 ```
 
+Endpoints can return either html (to display tables, ...) or straight json (to be used by a front-end framework).
+
 ## Background
 
 ### Downey mildew
