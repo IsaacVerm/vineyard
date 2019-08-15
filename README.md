@@ -84,6 +84,10 @@ module.exports = {
 }
 ```
 
+[Good tutorial](https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headless-for-web-scrapping-6bf5979dee3e)
+
+Do not set [input value](https://stackoverflow.com/questions/47966510/how-to-fill-an-input-field-using-puppeteer) with `page.type()`.
+
 ## Background
 
 ### Downey mildew
