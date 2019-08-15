@@ -128,6 +128,32 @@ We use `TINYINT(1)` as type instead of `BOOLEAN` since `BOOLEAN` does not exist 
 
 Python has a [mysql connector](https://www.datacamp.com/community/tutorials/mysql-python).
 
+[Examples](https://dev.mysql.com/doc/connector-python/en/connector-python-examples.html) how to connect.
+
+Preferred to use sqlite3 over mysql since:
+
+- it's built into Python
+- no need for a separate server
+
+#### sqlite
+
+version used is `3.24.0`
+
+[cli explanation](https://sqlite.org/cli.html)
+
+Create database:
+
+```
+touch vineyard.db
+sqlite3 vineyard.db
+```
+
+To run script in sqlite3:
+
+```
+sqlite3 vineyard.db < script.sql
+```
+
 ## Background
 
 ### Downey mildew

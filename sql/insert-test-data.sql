@@ -1,5 +1,3 @@
-USE vineyard
-
 INSERT INTO cleaned_weather_station (moment, temperature, rainfall)
 VALUES
 ('2019-01-01 01:00:00',30,60),
