@@ -102,6 +102,10 @@ Run `mysql -u root` to enter console. Root server is available by default in mys
 
 [Cheatsheet](https://www.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html)
 
+Explanation how to [save database](https://dev.mysql.com/doc/refman/5.7/en/mysqldump-sql-format.html).
+
+Python has a [mysql connector](https://www.datacamp.com/community/tutorials/mysql-python).
+
 #### Test data
 
 Shell script to seed test data:
@@ -109,6 +113,8 @@ Shell script to seed test data:
 ```
 ./seed-test-data.sh
 ```
+
+Don't forget to make it executable using `chmod u+x`. 
 
 #### Schemas
 

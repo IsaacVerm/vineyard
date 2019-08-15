@@ -11,6 +11,7 @@ CREATE TABLE cleaned_weather_station
 (
     id INT NOT NULL
     AUTO_INCREMENT,
+    moment TIMESTAMP,
     temperature INT,
     rainfall INT,
     PRIMARY KEY (id)
@@ -20,7 +21,7 @@ CREATE TABLE output_model
 (
     id INT NOT NULL
     AUTO_INCREMENT,
-    hour VARCHAR(50),
+    moment TIMESTAMP,
     prediction_boolean TINYINT (1),
     prediction_percentage INT,
     PRIMARY KEY (id)
