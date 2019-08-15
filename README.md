@@ -104,8 +104,6 @@ Run `mysql -u root` to enter console. Root server is available by default in mys
 
 Explanation how to [save database](https://dev.mysql.com/doc/refman/5.7/en/mysqldump-sql-format.html).
 
-Python has a [mysql connector](https://www.datacamp.com/community/tutorials/mysql-python).
-
 #### Test data
 
 Shell script to seed test data:
@@ -125,6 +123,10 @@ Input database schema:
 Output database schema:
 
 We use `TINYINT(1)` as type instead of `BOOLEAN` since `BOOLEAN` does not exist in [mysql](http://www.mysqltutorial.org/mysql-data-types.aspx).
+
+#### Connect mysql with Python
+
+Python has a [mysql connector](https://www.datacamp.com/community/tutorials/mysql-python).
 
 ## Background
 
