@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "c994ca56-c619-4e53-aad7-ae0137e48f01",
+		"name": "vineyard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/output/predictions - request for json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1452fed-6d1f-4a77-b004-e77d17c961aa",
+						"exec": [
+							"pm.test('returns json', function () {",
+							"    const jsonHeader = pm.response.headers.find(function(header) {",
+							"        return header == \"application/json\"",
+							"    })",
+							"    ",
+							"    pm.expect(jsonHeader).to.exist",
+							"    ",
+							"})",
+							"",
+							"pm.test('returns moment, prediction_boolean and prediction_percentage', function () {",
+							"    prediction_variables = Object.keys(pm.response.json()[0])",
+							"    ",
+							"    pm.expect(prediction_variables).to.have.members(['moment','prediction_boolean','prediction_percentage'])",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/output/predictions",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"output",
+						"predictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/output/predictions - request for html",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "77eaf75e-a68c-439e-a88b-e3e79d92f5f0",
+						"exec": [
+							"pm.test('returns html', function () {",
+							"    const jsonHeader = pm.response.headers.find(function(header) {",
+							"        return header == \"text/html; charset=utf-8\"",
+							"    })",
+							"    ",
+							"    pm.expect(jsonHeader).to.exist",
+							"    ",
+							"})",
+							"",
+							"pm.test('html contains table', function () {",
+							"    pm.expect(pm.response.text()).to.contain('</table>')",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/output/predictions",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"output",
+						"predictions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

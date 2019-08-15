@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/IsaacVerm/vineyard#readme",
   "dependencies": {
+    "newman": "^4.5.4",
     "puppeteer": "^1.19.0"
   }
 }

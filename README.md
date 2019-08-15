@@ -164,6 +164,19 @@ env FLASK_APP=model-output-service.py flask run
 
 Endpoints can return either html (to display tables, ...) or straight json (to be used by a front-end framework) depending on what's specified in the `Accept` header.
 
+## Tests
+
+At the moment the only tests available are tests for the service in Postman.
+
+To run these tests:
+
+```
+cd tests;
+newman run vineyard.postman_collection.json -e local.postman_environment.json
+```
+
+Make sure the service is running in the same environment as the tests. E.g. use environment local in Postman if you run the service on localhost.
+
 ## Background
 
 ### Downey mildew
