@@ -38,7 +38,7 @@ pip install {package}
 pip freeze > requirements.txt
 ```
 
-### Get weather station data
+## Data
 
 ### Python
 
@@ -87,6 +87,38 @@ module.exports = {
 [Good tutorial](https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headless-for-web-scrapping-6bf5979dee3e)
 
 Do not set [input value](https://stackoverflow.com/questions/47966510/how-to-fill-an-input-field-using-puppeteer) with `page.type()`.
+
+### Database
+
+Make sure to have mysql installed (`mysql --version` should return something).
+
+Have sql [server running](https://stackoverflow.com/questions/7927854/start-mysql-server-from-command-line-on-mac-os-lion):
+
+```
+mysql.server start
+```
+
+Run `mysql -u root` to enter console. Root server is available by default in mysql. You can run a script using `source script` and see output with `show` like `show database` or `show tables`.
+
+[Cheatsheet](https://www.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html)
+
+#### Test data
+
+Shell script to seed test data:
+
+```
+./seed-test-data.sh
+```
+
+#### Schemas
+
+Database used is [mysql](https://www.elated.com/mysql-for-absolute-beginners/).
+
+Input database schema:
+
+Output database schema:
+
+We use `TINYINT(1)` as type instead of `BOOLEAN` since `BOOLEAN` does not exist in [mysql](http://www.mysqltutorial.org/mysql-data-types.aspx).
 
 ## Background
 
