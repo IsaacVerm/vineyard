@@ -162,7 +162,7 @@ Run Flask:
 env FLASK_APP=model-output-service.py flask run
 ```
 
-Endpoints can return either html (to display tables, ...) or straight json (to be used by a front-end framework).
+Endpoints can return either html (to display tables, ...) or straight json (to be used by a front-end framework) depending on what's specified in the `Accept` header.
 
 ## Background
 
