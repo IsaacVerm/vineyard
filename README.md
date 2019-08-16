@@ -361,7 +361,18 @@ Small side note, you also need a script tag in the body with a link to your Vue 
 
 ### What to know
 
-Most what you need can be found in the Essentials part of the [guide](https://vuejs.org/v2/guide) and not even everything in Essentials is really that necessary. Stick to
+Most what you need can be found in the Essentials part of the [guide](https://vuejs.org/v2/guide) and not even everything in Essentials is really that necessary. Stick to:
+
+* reactivity
+  * interpolation
+  * directives
+* state
+  * methods
+  * data
+  * computed properties
+* lifecycle of instance
+* event handlers
+* conditionals and loops
 
 Not mentioned in the essentials but needed to consume the back-end service is [this tutorial](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html).
 
