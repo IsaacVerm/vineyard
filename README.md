@@ -349,14 +349,28 @@ Simple test Simplepush which sends a notification to your phone. 5nCvuY is my us
 curl 'https://api.simplepush.io/send/5nCvuY/Wow/So easy'
 ```
 
+## Web app
 
+[Vue](https://vuejs.org/) was chosen as front-end framework since it's pretty minimal (same philosophy as Flask for the back-end).
 
+### Installation
 
+No need to [install Vue](https://vuejs.org/v2/guide/installation.html) explicitly. To get up and running you just have to put a script tag in the `<head>` referring to the CDN.
 
+Small side note, you also need a script tag in the body with a link to your Vue Javascript code.
 
+### What to know
 
+Most what you need can be found in the Essentials part of the [guide](https://vuejs.org/v2/guide) and not even everything in Essentials is really that necessary. Stick to
 
+Not mentioned in the essentials but needed to consume the back-end service is [this tutorial](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html).
 
+Gotchas:
 
+* why you sometimes see [return in data](https://flaviocopes.com/vue-data-function/)
 
+## Security
 
+By default Flask enable CORS (cross-origin scripting). However, for developing this hinders more than it helps. To disable it there's a `Flask-CORS` [library](https://flask-cors.readthedocs.io/en/latest/).
+
+Pay attention, this should be removed in a real production deployment.
