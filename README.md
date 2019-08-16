@@ -325,6 +325,13 @@ barometric pressure: predict state variables like temperature, rainfall coming d
 
 ## Notifications
 
+Spraying should be done if both:
+
+* model predictions exceed threshold
+* hasn't been sprayed for at least a certain time
+
+This certain time has be to verified (let's take a week as an example).
+
 There's a Python library called [notifiers](https://github.com/notifiers/notifiers) which seems well maintained. It's a wrapper around several popular notification application.
 
 Another option is to use the native Python library of a notification application. E.g. [Simplepush](https://simplepush.io/) seems a good match.

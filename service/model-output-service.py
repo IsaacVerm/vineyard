@@ -22,3 +22,7 @@ def predictions():
         return render_template('predictions.html', predictions=predictions, columns=columns, rows=rows)
     else:
         return("I'm sorry but support for that content type has not been implemented yet.")
+
+@app.route('/spray')
+def pesticide():
+    

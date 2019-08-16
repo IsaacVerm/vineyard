@@ -16,3 +16,10 @@ CREATE TABLE output_model
     prediction_boolean INTEGER,
     prediction_percentage INTEGER
 );
+
+CREATE TABLE spray
+(
+    id INTEGER PRIMARY KEY,
+    moment TEXT,
+    pesticide TEXT
+);
