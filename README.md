@@ -164,6 +164,11 @@ env FLASK_APP=model-output-service.py flask run
 
 Endpoints can return either html (to display tables, ...) or straight json (to be used by a front-end framework) depending on what's specified in the `Accept` header.
 
+Threshold are query parameters (because [filtering](https://medium.com/@fullsour/when-should-you-use-path-variable-and-query-parameter-a346790e8a6d)) to the endpoint instead of fixed values in a config file. This in order to:
+
+* be more flexible
+* make testing easier since you can specify different test cases
+
 ## Tests
 
 At the moment the only tests available are tests for the service in Postman.

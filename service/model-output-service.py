@@ -48,19 +48,26 @@ def get_days_since_last_spray():
     return days_since_last_spray
 
 
+def get_last_prediction():
+    predictions = sqliteDb().get_predictions()
+
+    last_prediction = predictions[len(predictions) - 1]
+
+    return last_prediction
+
+
 @app.route('/spray')
 def spray():
-    # check if any of the predictions exceeds the prediction percentage
-    # predictions = sqliteDb().get_predictions()
-    # for prediction in predictions:
-    #     print(prediction)
+    # check if last prediction exceeds the prediction percentage
+    last_prediction = get_last_prediction()
+
+    prediction_over_threshold = True if last_prediction[
+        'prediction_percentage'] > prediction_percentage_threshold else False
 
     # check if the vineyard was sprayed recently
-    print(get_days_since_last_spray())
+    days_since_last_spray = get_days_since_last_spray()
+
+    recently_sprayed = days_since_last_spray < days_not_sprayed_threshold
 
     # both requirements are checked
-    recently_sprayed = False
-    prediction_over_threshold = True
-
-    if prediction_over_threshold and not recently_sprayed:
-        return jsonify(True)
+    return jsonify(prediction_over_threshold and not recently_sprayed)
