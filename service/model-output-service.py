@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request, render_template
 from db import sqliteDb
-from config import *
 
 from datetime import datetime
 
@@ -58,6 +57,12 @@ def get_last_prediction():
 
 @app.route('/spray')
 def spray():
+    # get query parameters
+    prediction_percentage_threshold = int(
+        request.args.get('predictionPercentageThreshold'))
+    days_not_sprayed_threshold = int(
+        request.args.get('daysNotSprayedThreshold'))
+
     # check if last prediction exceeds the prediction percentage
     last_prediction = get_last_prediction()
 
@@ -70,4 +75,6 @@ def spray():
     recently_sprayed = days_since_last_spray < days_not_sprayed_threshold
 
     # both requirements are checked
-    return jsonify(prediction_over_threshold and not recently_sprayed)
+    return jsonify({'spray': prediction_over_threshold and not recently_sprayed,
+                    'daysSinceLastSpray': days_since_last_spray,
+                    'lastPredictionPercentage': last_prediction['prediction_percentage']})

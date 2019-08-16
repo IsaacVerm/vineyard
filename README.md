@@ -182,6 +182,8 @@ newman run vineyard.postman_collection.json -e local.postman_environment.json
 
 Make sure the service is running in the same environment as the tests. E.g. use environment local in Postman if you run the service on localhost.
 
+Tests are based on the test data in `insert-test-data.sql`.
+
 ## Background
 
 ### Downey mildew
