@@ -11,4 +11,12 @@ class sqliteDb:
         query = (
             "SELECT moment, prediction_boolean, prediction_percentage FROM output_model")
         rows = self.cursor.execute(query).fetchall()
-        return [dict(row) for row in rows] # sqlite3 returns row instead of list by default
+        # sqlite3 returns row instead of list by default
+        return [dict(row) for row in rows]
+
+    def get_spray_moments(self):
+        query = ("SELECT moment FROM spray")
+        rows = self.cursor.execute(query).fetchall()
+
+        # sqlite3 returns row instead of list by default
+        return [''.join(list(row)) for row in rows]
