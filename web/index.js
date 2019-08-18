@@ -11,7 +11,6 @@ var vm = new Vue({
         'http://127.0.0.1:5000/spray?predictionPercentageThreshold=20&daysNotSprayedThreshold=200',
       )
       .then(response => {
-        console.log(response);
         this.spray = response['data'];
       });
   },
