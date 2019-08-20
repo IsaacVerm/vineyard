@@ -29,77 +29,9 @@ module.exports = {
 
 Do not set [input value](https://stackoverflow.com/questions/47966510/how-to-fill-an-input-field-using-puppeteer) with `page.type()`.
 
-### Database
+### Data sources
 
-#### Schemas
-
-Database used is [mysql](https://www.elated.com/mysql-for-absolute-beginners/).
-
-Input database schema:
-
-Output database schema:
-
-We use `TINYINT(1)` as type instead of `BOOLEAN` since `BOOLEAN` does not exist in [mysql](http://www.mysqltutorial.org/mysql-data-types.aspx).
-
-#### Connect mysql with Python
-
-Python has a [mysql connector](https://www.datacamp.com/community/tutorials/mysql-python).
-
-[Examples](https://dev.mysql.com/doc/connector-python/en/connector-python-examples.html) how to connect.
-
-Preferred to use sqlite3 over mysql since:
-
-- it's built into Python
-- no need for a separate server
-
-#### sqlite
-
-version used is `3.24.0`
-
-[cli explanation](https://sqlite.org/cli.html)
-
-Create database:
-
-```
-touch vineyard.db
-sqlite3 vineyard.db
-```
-
-To run script in sqlite3:
-
-```
-sqlite3 vineyard.db < script.sql
-```
-
-## Service
-
-Run Flask:
-
-```
-env FLASK_APP=model-output-service.py flask run
-```
-
-Endpoints can return either html (to display tables, ...) or straight json (to be used by a front-end framework) depending on what's specified in the `Accept` header.
-
-Threshold are query parameters (because [filtering](https://medium.com/@fullsour/when-should-you-use-path-variable-and-query-parameter-a346790e8a6d)) to the endpoint instead of fixed values in a config file. This in order to:
-
-* be more flexible
-* make testing easier since you can specify different test cases
-
-## Tests
-
-At the moment the only tests available are tests for the service in Postman.
-
-To run these tests:
-
-```
-cd tests;
-newman run vineyard.postman_collection.json -e local.postman_environment.json
-```
-
-Make sure the service is running in the same environment as the tests. E.g. use environment local in Postman if you run the service on localhost.
-
-Tests are based on the test data in `insert-test-data.sql`.
+### Data contract
 
 ## Background
 
@@ -120,7 +52,13 @@ Traditionally the *3-10* rule is used as a "model". This rule says there will be
 * vine shoots > 10 cm
 * 10 mm of rainfall in last 24-48 hours
 * 
-The *3-10* rule can be assumed to be a minimum acceptancecriterium for our own model. In addition it can be usedas a sanity check for our own model. If our own modeldeviates too far from the rule it probably meanssomething is wrong with our model and not the rule(although the rule is far from perfect).
+The *3-10* rule can be assumed to be a minimum acceptancecriterium for our own model. In addition it can be usedas a sanity check for our own model. If our own model deviates too far from the rule it probably means something is wrong with our model and not the rule(although the rule is far from perfect).
+
+## Model
+
+### Verification model
+
+The dependent variable (the presence of downy mildew) is not present in the data set provided. It is thus impossible to verify the model.
 
 ### mechanistic model
 
@@ -132,9 +70,20 @@ When weather conditions are favourable (e.g. high temperature, enough rainfall) 
 
 Important is cohorts are used because that's what they had modelling problems with in Excel. The issue is multiple cohorts can be developing at the same time.
 
-### input variables
+### variables
 
 Weather variables are logged by a weather station in the vineyard. These weather variables are the input of the model.
+
+- relative humidity
+- temperature
+  - min
+  - max
+  - average
+- wetness leaf (bladnat)
+- light
+- barrometric pressure
+
+Barometric pressure can be used to predict state variables like temperature, rainfall coming days.
 
 ### Goal
 
@@ -147,14 +96,6 @@ of downy mildew in grapevine
 Based on this probability notifications are sent.
 
 A secundary goal is to visualize the actions taken, input variables and mildew probability.
-
-## Verification model
-
-The dependent variable (the presence of downy mildew) is not present in the data set provided. It is thus impossible to verify the model.
-
-## Data sources
-
-## Data contract
 
 ## Requirements
 
@@ -183,7 +124,7 @@ Logging:
 * when pesticide was used
 * presence/absence of downy mildey
 
-## Modules
+## Parts application
 
 * model
 * service
@@ -215,16 +156,6 @@ These libraries are chosen because they have a minimalistic vision enabling us t
 * write code that's easy to understand by others
 * quickly set up a proof of concept
 
-## Downy mildey
-
-[Wikipedia explanation](https://en.wikipedia.org/wiki/Downy_mildew)
-
-The pathogen tends to become established in late summer.
-
-Therefore, planting early season varieties may further reduce the already minor threat posed by downy mildew.
-
-One way to control downy mildew is to eliminate moisture and humidity around the impacted plants
-
 ## Deliverables
 
 * application
@@ -232,20 +163,6 @@ One way to control downy mildew is to eliminate moisture and humidity around the
   * how to configure model
   * how to deploy app
 * basic tests
-
-## Variables model
-
-- relative humidity
-- temperature
-  - min
-  - max
-  - average
-- wetness leaf (bladnat)
-- light
-- barrometric pressure
-
-barometric pressure: predict state variables like temperature, rainfall coming days 
-
 
 ## Notifications
 
