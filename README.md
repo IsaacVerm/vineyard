@@ -183,37 +183,6 @@ Simple test Simplepush which sends a notification to your phone. 5nCvuY is my us
 curl 'https://api.simplepush.io/send/5nCvuY/Wow/So easy'
 ```
 
-## Web app
-
-[Vue](https://vuejs.org/) was chosen as front-end framework since it's pretty minimal (same philosophy as Flask for the back-end).
-
-### Installation
-
-No need to [install Vue](https://vuejs.org/v2/guide/installation.html) explicitly. To get up and running you just have to put a script tag in the `<head>` referring to the CDN.
-
-Small side note, you also need a script tag in the body with a link to your Vue Javascript code.
-
-### What to know
-
-Most what you need can be found in the Essentials part of the [guide](https://vuejs.org/v2/guide) and not even everything in Essentials is really that necessary. Stick to:
-
-* reactivity
-  * interpolation
-  * directives
-* state
-  * methods
-  * data
-  * computed properties
-* lifecycle of instance
-* event handlers
-* conditionals and loops
-
-Not mentioned in the essentials but needed to consume the back-end service is [this tutorial](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html).
-
-Gotchas:
-
-* why you sometimes see [return in data](https://flaviocopes.com/vue-data-function/)
-
 ## Security
 
 By default Flask enable CORS (cross-origin scripting). However, for developing this hinders more than it helps. To disable it there's a `Flask-CORS` [library](https://flask-cors.readthedocs.io/en/latest/).
@@ -230,8 +199,44 @@ The following should be deployed:
 
 Use [Heroku](https://www.heroku.com/) with [tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-heroku).
 
-* Heroku cli installed
+* install Heroku cli
 * login to Heroku with cli
 * create app
+* add WSGI entry 
+* push to Heroku
 
-To be able to deploy each part independently, they each have a separate git repository.
+The app is automatically linked to GitHub if it has the same name as the repo. So to be able to deploy each part independently, they each have a separate git repository.
+
+To update the Heroku branch:
+
+```
+git push heroku master
+```
+
+If you have no Heroku remote linked automatically you can add one [this way](https://devcenter.heroku.com/articles/git#creating-a-heroku-remote):
+
+```
+heroku git:remote -a app-name
+```
+
+### file based database
+
+The database we use is `sqlite` which is file based. Files are cleaned every now and so often on Heroku so the database is wiped clean again. Might not be much of an issue if data is refetched/model is recalculated entirely each hour.
+
+### web server
+
+Flask itself (the web application) is not sufficient, you need a also need a webserver. [This](https://vsupalov.com/what-is-gunicorn/) explains it well:
+
+```
+Gunicorn takes care of everything which happens in-between the web server and your web application.
+```
+
+So no need to get into the nitty-gritty of load balancing, etc...
+
+The link between the web server (`gunicorn`) and web application (`flask`) is formed by the `WSGI`:
+
+```
+The Python Web Server Gateway Interface (WSGI) is a way to make sure that web servers and python web applications can talk to each other.
+```
+
+To [setup the WSGI](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04) you need to create an entrypoint.
