@@ -19,6 +19,7 @@
   - API tests in Postman
 - endpoints
   - zowel html als json
+  - parameters
 
 Postman tests kunnen later gebruikt worden voor monitoring.
 
@@ -37,9 +38,9 @@ Postman tests kunnen later gebruikt worden voor monitoring.
 
 - deployment
   - ophalen data van inagro server
+  - monitoring
 - ui
   - grafieken
 - notificaties
   - automatiseren
 - authorisatie
-- monitoring
